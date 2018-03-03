@@ -1,0 +1,6 @@
+.Python
+bin/
+include/
+lib/
+manage.py
+pip-selfcheck.json
