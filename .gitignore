@@ -5,3 +5,4 @@ lib/
 pip-selfcheck.json
 .idea/
 db.sqlite3
+/media/*

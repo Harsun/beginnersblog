@@ -1,6 +1,7 @@
 {%  extends 'base.html' %}
 {% block body %}
     <div class="container">
+        <img src="{{ post.image.url }}" class="img-fluid" alt="Responsive image"/>
         {{ post.title }}<br>
         {{ post.content|linebreaks }}<br>
         {{ post.pubdate|timesince }} ago<br>

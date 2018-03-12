@@ -6,6 +6,11 @@
                 <div class="row">
             {%  endif %}
         <div class="card col-md-4">
+            {% if post.image %}
+            <div class="card-img-top">
+                <img src="{{ post.image.url }}" class="img-thumbnail"/>
+            </div>
+            {% endif %}
             <h5 class="card-title">{{ post.title }}<small> - {{ post.pubdate|timesince }} ago</small></h5>
             <p class="card-text" >{{ post.content|linebreaks|truncatewords:10}} </p>
             <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Detail</a>

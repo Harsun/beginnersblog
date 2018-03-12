@@ -21,7 +21,7 @@ def detailview(request, id):
 
 
 def createview(request):
-    form = PostForm(request.POST or None)
+    form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         post = form.save()
         return HttpResponseRedirect(post.get_absolute_url())
@@ -33,7 +33,7 @@ def createview(request):
 
 def editview(request, id):
     post = get_object_or_404(Post, id=id)
-    form = PostForm(request.POST or None, instance=post)
+    form = PostForm(request.POST or None, request.FILES or None, instance=post)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(post.get_absolute_url())
