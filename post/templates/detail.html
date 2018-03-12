@@ -1,9 +1,9 @@
-{%  include 'base.html' %}
+{%  extends 'base.html' %}
 {% block body %}
     <div class="container">
-        <div class="card-title"{{ post.title }}></div><br>
-        {{ post.content }}<br>
-        {{ post.pubdate }}<br>
+        {{ post.title }}<br>
+        {{ post.content|linebreaks }}<br>
+        {{ post.pubdate|timesince }} ago<br>
         {{ post.upate }}<br>
     </div>
 {% endblock %}

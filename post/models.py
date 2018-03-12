@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
 
 
@@ -12,3 +12,11 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('post:detail', kwargs={'id': self.id})
+
+    def get_delete_url(self):
+        return reverse('post:delete', kwargs={'id': self.id})
+
+    def get_edit_url(self):
+        return reverse('post:edit', kwargs={'id': self.id})

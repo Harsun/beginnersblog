@@ -13,7 +13,9 @@
             </button>
 
             <!-- İsim Soyisim veya Marka İsmi -->
-            <a href="#" class="navbar-brand">Beginner's Blog</a>
+            <a href={%  url 'home:index' %} class="navbar-brand">Beginner's Blog</a>
+            <a href={% url 'post:index' %} class="navbar-brand">Posts Page</a>
+            <a href={% url 'post:create' %} class="navbar-brand">Create Post</a>
         </div>
 
         <nav class="collapse navbar-collapse" role="navigation">
