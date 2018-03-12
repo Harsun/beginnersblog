@@ -8,7 +8,7 @@ class Post(models.Model):
     content = models.TextField(null=False, blank=False)
     pubdate = models.DateTimeField(auto_now_add=True, verbose_name='publishing date')
     update = models.DateTimeField(auto_now_add=True)
-    image = models.FileField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
