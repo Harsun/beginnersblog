@@ -1,0 +1,9 @@
+{%  include 'base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="card-title"{{ post.title }}></div><br>
+        {{ post.content }}<br>
+        {{ post.pubdate }}<br>
+        {{ post.upate }}<br>
+    </div>
+{% endblock %}
