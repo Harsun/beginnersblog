@@ -6,8 +6,8 @@ app_name = 'post'
 
 urlpatterns = [
     path('', homeview, name='index'),
-    path('<int:id>', detailview, name='detail'),
-    path('create', createview, name='create'),
-    path('<int:id>/edit', editview, name='edit'),
-    path('<int:id>/delete', deleteview, name='delete'),
+    path('create/', createview, name='create'),
+    path('<slug:slug>/', detailview, name='detail'),
+    path('<slug:slug>/edit/', editview, name='edit'),
+    path('<slug:slug>/delete/', deleteview, name='delete'),
 ]

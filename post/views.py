@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, HttpResponseRedirect, redirect, Http404
 from .models import Post
 from .forms import PostForm
+from django.utils.text import slugify
 # Create your views here.
 
 
@@ -12,8 +13,8 @@ def homeview(request):
     return render(request, 'index.html', context)
 
 
-def detailview(request, id):
-    post = get_object_or_404(Post, id=id)
+def detailview(request, slug):
+    post = get_object_or_404(Post, slug=slug)
     context={
         'post':post
     }
@@ -22,8 +23,9 @@ def detailview(request, id):
 
 def createview(request):
 
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return Http404()
+
 
     form = PostForm(request.POST or None, request.FILES or None)
 
@@ -38,11 +40,11 @@ def createview(request):
     return render(request, 'create.html', context)
 
 
-def editview(request, id):
-    if not request.user.is_authenticated():
+def editview(request, slug):
+    if not request.user.is_authenticated:
         return Http404
 
-    post = get_object_or_404(Post, id=id)
+    post = get_object_or_404(Post, slug=slug)
 
     form = PostForm(request.POST or None, request.FILES or None, instance=post)
 
@@ -57,11 +59,11 @@ def editview(request, id):
     return render(request, 'create.html', context)
 
 
-def deleteview(request, id):
-    if not request.user.is_authenticated():
+def deleteview(request, slug):
+    if not request.user.is_authenticated:
         return Http404()
 
-    post = get_object_or_404(Post, id=id)
+    post = get_object_or_404(Post, slug=slug)
 
     post.delete()
 
