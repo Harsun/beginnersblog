@@ -3,7 +3,7 @@
     <div class="container">
         {%  if post.image %}<img src="{{ post.image.url }}" class="img-fluid" alt="responsive image"/>{% endif %}
         <div class="card-title">{{ post.title }} - <small>{{ post.pubdate|timesince }} ago</small></div>
-        {{ post.content|linebreaks }}<br>
+        {{ post.content|safe|linebreaks }}<br>
         {% if request.user.is_authenticated %}
             <a href="{{ post.get_edit_url }}" class="btn btn-default">Update</a>
             <a href="{{ post.get_delete_url }}" class="btn btn-danger">Delete</a>

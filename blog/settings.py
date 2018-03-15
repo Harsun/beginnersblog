@@ -139,3 +139,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jquery.min.js')
+
+CKEDITOR_CONFIGS = {
+    'default' : {
+        'width':'100%'
+    }
+}

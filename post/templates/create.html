@@ -8,6 +8,7 @@
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy }}<br>
+                    {{ form.media }}
                     <input class="btn btn-primary" type="submit" value="Create"/>
                 </form>
                 </div>

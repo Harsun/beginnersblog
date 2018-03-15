@@ -1,13 +1,13 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 
 class Post(models.Model):
     title = models.CharField(max_length=200, null=False, blank=False)
-    content = models.TextField(null=False, blank=False)
+    content = RichTextField(null=False, blank=False)
     pubdate = models.DateTimeField(auto_now_add=True, verbose_name='publishing date')
     update = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(null=True, blank=True)
