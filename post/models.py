@@ -6,6 +6,7 @@ from ckeditor.fields import RichTextField
 
 
 class Post(models.Model):
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='posts')
     title = models.CharField(max_length=200, null=False, blank=False)
     content = RichTextField(null=False, blank=False)
     pubdate = models.DateTimeField(auto_now_add=True, verbose_name='publishing date')
@@ -42,3 +43,9 @@ class Post(models.Model):
         ordering = ['-pubdate']
 
 
+
+class Comment(models.Model):
+    post = models.ForeignKey('post.Post', on_delete=models.CASCADE, related_name='comment')
+    name = models.CharField(max_length=200)
+    content = models.TextField()
+    comment_date = models.DateTimeField(auto_now_add=True)

@@ -30,7 +30,9 @@ def createview(request):
     form = PostForm(request.POST or None, request.FILES or None)
 
     if form.is_valid():
-        post = form.save()
+        post = form.save(commit=False)
+        post.user = request.User
+        post.save()
         return HttpResponseRedirect(post.get_absolute_url())
 
     context = {
