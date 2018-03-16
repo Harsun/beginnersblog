@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
+
 # Create your models here.
 
 
@@ -49,3 +50,6 @@ class Comment(models.Model):
     name = models.CharField(max_length=200)
     content = models.TextField()
     comment_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-comment_date']

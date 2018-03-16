@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # 3rd Party apps
     'crispy_forms',
     'ckeditor',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,8 @@ CKEDITOR_CONFIGS = {
         'width':'100%'
     }
 }
+
+RECAPTCHA_PUBLIC_KEY = '6Ldy7EwUAAAAAGhZBhoor2Js2P6uavIK4d3fZ0Ug'
+RECAPTCHA_SECRET_KEY = '6Ldy7EwUAAAAAO4YrhiV6_PyA5l1HUhBGi8_1pkD'
+
+NOCAPTCHA = True

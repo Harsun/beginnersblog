@@ -10,4 +10,18 @@
             <a href="{{ post.get_delete_url }}" class="btn btn-danger">Delete</a>
         {%  endif %}
     </div>
+    <br><br><hr>
+    <div class="container">
+        <h3>Add Comments</h3>
+        {% include 'comment.html' %}
+    </div>
+    <hr>
+
+    <div class="container">
+        {% for comment in post.comment.all %}
+            <h4> {{ comment.name }} - <small>{{ comment.comment_date|timesince }} ago</small></h4><br>
+            <p>{{ comment.content|safe }}</p>
+            <hr>
+        {% endfor %}
+    </div>
 {% endblock %}
